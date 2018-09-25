@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="Keywords">
+    <meta content="" name="description"/>
+    <title>笔记</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id='app'></div>
+</body>
+</html>
+<script>
+    /*
+    数据变化影响视图：
+    虚拟的DOM和真实的DOM是一一对应的；
+    DOM--diff
+    数据变虚拟DOM发生变化，当虚拟DOM发生变化之后，浏览器会根据DOM-diff算法机型对比，把发生改变的那部分进行替换
+    */
+    let app=document.getElementById('app');
+    let ary=[1,2,4,5,3,2];
+    function dec(a){
+        let obj={};
+        let arr=[];
+        a.forEach((item)=>{
+            obj[item]=item;
+        });
+        for (let val in obj){
+            arr.push(obj[val]);
+        }
+        return arr;
+    }
+    console.log(dec(ary));
+    console.log(ary);
+
+    let ary1=[{a:1,b:2},{a:1,b:3},{a:1,b:2},{b:2,a:1}];
+    
+     /*实现一个LazyMan，可以按照以下方式调用:
+     1) LazyMan(“Hank”)输出:
+     Hi! This is Hank!
+
+     2) LazyMan(“Hank”).sleep(10).eat(“dinner”)输出
+     Hi! This is Hank!
+     //等待10秒..
+     Wake up after 10
+     Eat dinner~
+
+     3) LazyMan(“Hank”).eat(“dinner”).eat(“supper”)输出
+     Hi This is Hank!
+     Eat dinner~
+     Eat supper~
+
+     4) LazyMan(“Hank”).sleepFirst(5).eat(“supper”)输出
+     //等待5秒
+     Wake up after 5
+     Hi This is Hank!
+     Eat supper*/
+     function LazyMan(name){
+         function Man(){
+             setTimeout(function(){
+                 console.log(`Hi! This is ${name}!`);
+             },0);
+         }
+         Man.prototype.sleep=function(time){
+            //  setTimeout(function(){
+
+            //  },time*1000)
+            let curTime = new Date();
+            setTimeout(function(){
+                //while是同步的，可以阻塞当前的线程（JS是单线程，一个时间点只能做一件事）
+            while(new Date()-curTime>=time*1000){};
+            console.log(`Wake up after ${time}`)
+            },0);
+             return this;//this指向Man的实例
+         }
+         Man.prototype.eat=function(food){
+             setTimeout(function(){
+                  console.log(`Eat ${food}`);
+             },0);
+             return this;
+         }
+         Man.prototype.sleepFirst=function(time){
+            //while循环进行同步线程的阻塞
+            let curTime=new Date();
+            while(new Date()-curTime>time*1000){};
+            console.log();
+            return this;
+         }
+         return new Man;
+     }
+     LazyMan('hank');
+
+</script>

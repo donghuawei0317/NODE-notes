@@ -1,0 +1,12 @@
+{
+  "name": "2018.9.26",
+  "version": "1.0.0",
+  "description": "",
+  "main": "npm第三方模块.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

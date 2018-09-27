@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let ary=[{a:1,b:2},{a:3,b:4},{a:1,b:2},{b:4,a:3}];
+    let obj={};
+    let len=ary.length;
+    for(let i=0;i>len;i++){
+        if(obj[ary[i].a+""+ary[i].b]){
+            ary.splice(i,1);
+            i--;
+            continue
+        }
+        obj[ary[i].a+","+ary[i].b]=true;
+    }
+</script>

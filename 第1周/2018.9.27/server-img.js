@@ -17,6 +17,7 @@ http.createServer(function (req, res) {
             res.end(data);
         })
     }
+    console.log(req.url);
     fs.readFile("." + req.url, "utf8", function (err, data) {
         res.end(data);
     })

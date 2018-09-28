@@ -7,7 +7,7 @@ function sum(){
         if(!isNaN(cur)){
             total += cur;
         }
-    };
+    }
     return total;
 }
 function fn(){
@@ -16,9 +16,11 @@ function fn(){
 //模块导出
 //方法一：module.exports.sum=sum
 //方法二：exports.sum=sum
-//module.exports.sum=sum;
-//exports.sum=sum;
-module.exports={
+// module.exports.sum=sum;
+// exports.sum=sum;
+//module.exports=10;
+/*exports={
     sum,
     b:fn,
-}
+};*/
+exports=10;

@@ -1,15 +1,17 @@
 let a = require('./sum.js');//“ ./ ”必须写，如果文件的后缀名是“ .js/.json ”可以不写后缀名
 //“ require ”不在全局对象中。require导入的模块会将模块中的代码从上到下执行
-console.log(a,b);
-console.log(a.sum(1,2,3));
-console.log(window);//在node环境中没有“ window ”，全局对象是“ global ”
+console.log(a);
+//console.log(a.sum(1,2,3));
+//console.log(window);//在node环境中没有“ window ”，全局对象是“ global ”
 //在每个自定义模块的最外层，会默认添加一个闭包函数
 ~function(module,exports,require,__dirname,__filename){
     /*
     __dirname：当前文件的父级目录的绝对路径
     __filename：当前文件的绝对路径
     */
-}()
+}();
+console.log("__dirname:",__dirname);
+console.log('__filename:',__filename);
 /*
 导入模块：
     1、require 导入一个模块，如果是同级的自定义模块，必须加上“ ./ ”

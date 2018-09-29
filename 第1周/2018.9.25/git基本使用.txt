@@ -35,6 +35,7 @@
     - git checkout 分支名【切换分支】
     - git checkout master【切回主干（！切回主干之前，要将更改的文件提交到历史区!）】
     - git merge 分支名【将分支的代码合并到主干上】
+    - git checkout -b 分支名【连续执行新建并切换到新分支】
 
 前端只是整个项目的一部分；
 

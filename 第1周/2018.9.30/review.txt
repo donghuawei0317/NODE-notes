@@ -1,0 +1,43 @@
+git clone xxx
+git branch xxx
+git checkout xxx
+git status
+git add .
+git commit -m "xxx"
+git push
+
+新切分支 在原有分支xxx上新切分支：
+    git checkout xxx
+    git branch xxx_1
+    git status
+    git add .
+    git commit -m "m"
+    git push
+
+合并分支：
+    git checkout xxx
+    git merge xxx_1
+
+NODE
+    fs
+        fs.readFile(path,options,(err,data)=>{})
+        fs.readFileSync(path,options)
+        fs.writeFile(path,data,options,(err)=>{})
+        fs.writeFileSync(path,data,options)
+        fs.appendFile(path,data,options,(err)=>{})
+        fs.appendFileSync(path,data,options)
+    path
+        __dirname
+        path.resolve('./1.js)
+    url
+        url.parse(str)
+    mime(第三方模块)
+        mime.getType(path)
+    http
+        http.createServer((req,res)=>{
+            req：请求信息的载体
+            res：响应信息的载体
+            res.end(str)
+        }).listen(8000,()=>{
+            
+        })

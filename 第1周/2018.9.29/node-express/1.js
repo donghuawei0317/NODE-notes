@@ -3,7 +3,7 @@ let app=express();
 app.get('/listen',(req,res)=>{
     res.send('hello');
 });
-app.post('./listen2',(req,res)=>{
+app.post('/listen2',(req,res)=>{
     res.send('post');
 });
 app.all('/listen3',(req,res)=>{

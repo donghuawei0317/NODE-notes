@@ -10,5 +10,5 @@ import qqq from './ddd'
 import * as qqq from './ddd'
 export {q,w,e} export {a,s,d,f}...
 这种方式是输出文件有多个输出
-引入的时候所有的引入都放入一个
+引入的时候所有的引入都放入一个自定义名对象中
 */

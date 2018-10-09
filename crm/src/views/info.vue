@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class='info_box'>
         <Form :model="formLeft" label-position="left" :label-width="100">
             <FormItem label="姓名">
                 <Input v-model="formLeft.name"></Input>
@@ -15,7 +15,7 @@
     </div>
 </template>
 <script>
-import axios from 'axios'
+    import axios from 'axios'
     export default {
         data () {
             return {
@@ -49,7 +49,7 @@ import axios from 'axios'
                 })
             },
             add(){
-                axios.post('/add',this.fprmLeft).then((data)=>{
+                axios.post('/add',this.formLeft).then((data)=>{
                     if(data.data.errorCode == 0){
                         this.formLeft = JSON.parse(JSON.stringify(this.formLeft1));
                     }
@@ -61,7 +61,8 @@ import axios from 'axios'
                     this.edit();
                 }else{
                     this.add();
-                }
+                };
+                console.log("提交")
             },
             edit(){
                 //把修改后的信息发给后台
@@ -72,7 +73,8 @@ import axios from 'axios'
                         // this.formLeft.age = '';
                         // this.firmLeft.address = '';
                         this.formLeft = JSON.parse(JSON.stringify(this.formLeft1));//深拷贝 利用 JSON 的方法产生一个新对象
-                        this.$router.push('/info');
+                        //this.$router.push('/info');
+                        this.$router.replace('/info');
                     }
                 })
             }
@@ -81,6 +83,7 @@ import axios from 'axios'
 </script>
 <style scoped>
 .info_box{
-    width:300px;
+    width:600px;
+    margin:auto;
 }
 </style>

@@ -97,7 +97,7 @@ http.createServer((req,res)=>{
             let str='';
             req.on('data',(chunk)=>{
                 //接收请求体中的数据时会触发这个回调函数
-                console.log(chunk);//buffer 转换成能看的字符串 tostring或者用字符串拼接
+                //console.log(chunk);//buffer 转换成能看的字符串 tostring或者用字符串拼接
                 str+=chunk;
             });
             req.on('end',()=>{
@@ -115,7 +115,7 @@ http.createServer((req,res)=>{
                                 return val;
                             }
                         });
-                        while(ary,(err)=>{
+                        write(ary,(err)=>{
                             if(!err){
                                 res.end(JSON.stringify(obj));
                             }else{

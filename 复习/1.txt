@@ -1,0 +1,72 @@
+JS 数据类型：
+    基本数据类型：number string boolean bull undefined
+    引用数据类型：{} [] /xxx/ Date Function Math
+出现 NaN 的情况：
+    1.强制转化数据类型的时候
+    2.四则运算失败的时候
+isNaN 判断是否是“ NaN ”，返回布尔数据“ true/false ”
+
+1 == '1' --> true 
+null == undefined --> true 
+({}) == ({}) --> false 
+
+![] == [] --> true
+[] == false --> true
+![] == false --> true
+    引用数据类型相比较，比较的是地址
+    引用数据类型与字符串比较，先把引用数据类型转换成字符串，然后再进行比较
+
+查看数据类型：
+    typeof [] --> 'Object'
+    constructor
+    instanceof
+    Object.prototype.toString.call【({}).toString.call】
+
+或 与：
+    或：||
+    与：&&
+
+数组的方法：
+    concat:拼接数组
+    every:ary.every((item,index)=>{return xxx【判断条件】})【返回的是布尔】
+    some:ary.some((item)=>{return xxx【判断条件】})【返回的是布尔】
+    filter:ary.filter((item)=>{return xxx【判断条件】})【返回的是符合条件的】
+    join:以指定字符拼接。eval(ary.join('+'))
+    reduce:ary.reduce((prev,next,index,ary)=>{},x)
+    reverse:反转数组内容，返回值是改变后的原数组
+    sort:排序，返回值是改变后的原数组
+    shift:删除数组第一项
+    slice:ary.slice(n,m)【从索引n开始，删除m项，返回值是被删除的内容组成的数组】
+
+数组快速排序：
+    function quick(ary){
+        if(ary.length<=1) return ary;
+        let n = Math.floor(ary.length/2);
+        let temp = ary[n];
+        let left = [];
+        let right = [];
+        ary.forEach((item,index)=>{
+            排除与自己本身比较
+            if(n !=index){
+                if(item>=temp){
+                    right.push(item);
+                }else{
+                    left.push(item);
+                }
+            }
+        });
+        return qiuck(left).concat(temp,quick(right));
+    }
+
+验证码：【n位不重复的验证码】
+    function a(n){
+        let str = 'abc...ABC...012...9';
+        let s = '';
+        while(s.length<n){
+            let m = Math.round(Math.random()*61);
+            if(s.indexOf(str[m]) == -1){
+                s+=str[m];
+            }
+        }
+        return s;
+    }
